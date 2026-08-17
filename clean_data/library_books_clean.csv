@@ -1,0 +1,14 @@
+id,books,book_checkout,book_returned,days_allowed_to_borrow,customer_id,loan_days,days_allowed,invalid_date_order,returned_late
+1.0,Catcher in the Rye ,2023-02-20,2023-02-25,2 weeks,1.0,5.0,14,False,False
+6.0,Little Women,2023-04-02,2023-05-01,2 weeks,1.0,29.0,14,False,True
+9.0,Catch 22,2023-04-15,2023-04-16,2 weeks,7.0,1.0,14,False,False
+10.0,Animal Farm ,2023-04-20,2023-04-24,2 weeks,2.0,4.0,14,False,False
+11.0,1984,2023-04-23,2023-04-27,2 weeks,8.0,4.0,14,False,False
+12.0,Little Women,2023-04-02,2023-05-01,2 weeks,1.0,29.0,14,False,True
+13.0,East of Eden,2023-04-30,2023-05-05,2 weeks,2.0,5.0,14,False,False
+14.0,America Is in the Heart,2023-05-01,2023-05-07,2 weeks,3.0,6.0,14,False,False
+15.0,Wuthering Heights,2023-05-01,2023-05-10,2 weeks,9.0,9.0,14,False,False
+16.0,Dark Tales,2023-05-15,2023-06-01,2 weeks,2.0,17.0,14,False,True
+18.0,Les Miserables,2023-06-03,2023-06-07,2 weeks,5.0,4.0,14,False,False
+19.0,Dracula,2023-06-10,2023-07-10,2 weeks,10.0,30.0,14,False,True
+20.0,Frankenstein,2023-06-01,2023-06-20,2 weeks,2.0,19.0,14,False,True

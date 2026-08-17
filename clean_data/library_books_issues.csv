@@ -1,0 +1,9 @@
+id,books,book_checkout,book_returned,days_allowed_to_borrow,customer_id,loan_days,days_allowed,invalid_date_order,returned_late,data_quality_issue
+2.0,Lord of the rings the two towers,2023-03-24,2023-03-21,2 weeks,2.0,-3.0,14,True,,return date precedes checkout date
+3.0,Lord of the rings the return of the kind,2023-03-29,2023-03-25,2 weeks,3.0,-4.0,14,True,,return date precedes checkout date
+4.0,The hobbit,2023-04-02,2023-03-25,2 weeks,4.0,-8.0,14,True,,return date precedes checkout date
+5.0,Dune ,2023-04-02,2023-03-25,2 weeks,5.0,-8.0,14,True,,return date precedes checkout date
+7.0,IT,2063-04-10,2023-04-03,2 weeks,6.0,-14617.0,14,True,,return date precedes checkout date; suspicious checkout year
+8.0,Misery ,2023-04-15,2023-04-03,2 weeks,7.0,-12.0,14,True,,return date precedes checkout date
+17.0,The Bloody Chamber,,2023-06-04,2 weeks,3.0,,14,False,,missing or invalid checkout date
+21.0,,2023-06-01,2023-06-05,2 weeks,,4.0,14,False,False,missing book title; missing customer ID
