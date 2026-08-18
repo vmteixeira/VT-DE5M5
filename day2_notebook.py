@@ -13,6 +13,7 @@
 
 
 # Import clean CSV files
+from pathlib import Path
 import pandas as pd
 
 BASE_DIRECTORY = Path.cwd()
