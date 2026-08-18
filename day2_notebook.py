@@ -21,41 +21,6 @@ CLEAN_DATA_DIRECTORY = BASE_DIRECTORY / "Clean_Data"
 BOOKS_CLEAN_PATH = CLEAN_DATA_DIRECTORY / "library_books_clean.csv"
 CUSTOMERS_CLEAN_PATH = CLEAN_DATA_DIRECTORY / "library_customers_clean.csv"
 
-for clean_file in (BOOKS_CLEAN_PATH, CUSTOMERS_CLEAN_PATH):
-    if not clean_file.exists():
-        raise FileNotFoundError(
-            f"Clean file not found: {clean_file}. "
-            "Keep the notebook beside the Clean_Data folder."
-        )
-
-books_clean = pd.read_csv(BOOKS_CLEAN_PATH)
-customers_clean = pd.read_csv(CUSTOMERS_CLEAN_PATH)
-
-print(f"Books loaded: {books_clean.shape}")
-print(f"Customers loaded: {customers_clean.shape}")
-print("\nBooks preview:")
-print(books_clean.head().to_string(index=False))
-print("\nCustomers preview:")
-print(customers_clean.head().to_string(index=False))
-
-
-
-# In[3]:
-
-
-# Load both clean files
-import pandas as pd
-books_path = next(
-        file for file in csv_files
-        if "books_clean" in file.name
-)
-customers_path = next(
-        file for file in csv_files
-        if "customers_clean" in file.name
-)
-books_df = pd.read_csv(books_path)
-customers_df = pd.read_csv(customers_path)
-
 
 # ### 2. Make sure that your cleaning uses one or more functions. MUST HAVE: a function to enrich the data. A function that works out the difference in days between the date columns. 
 
@@ -163,65 +128,61 @@ def finalise_customers(dataframe: pd.DataFrame) -> pd.DataFrame:
     return customers.drop_duplicates().reset_index(drop=True)
 
 
-# In[16]:
+def main() -> None:
+    """Load, finalise, save, and validate both clean CSV files."""
+    for clean_file in (BOOKS_CLEAN_PATH, CUSTOMERS_CLEAN_PATH):
+        if not clean_file.exists():
+            raise FileNotFoundError(
+                f"Clean file not found: {clean_file}. "
+                "Keep this script beside the Clean_Data folder."
+            )
+
+    books_clean = pd.read_csv(BOOKS_CLEAN_PATH)
+    customers_clean = pd.read_csv(CUSTOMERS_CLEAN_PATH)
+
+    print(f"Books loaded: {books_clean.shape}")
+    print(f"Customers loaded: {customers_clean.shape}")
+    print("\nBooks preview:")
+    print(books_clean.head().to_string(index=False))
+    print("\nCustomers preview:")
+    print(customers_clean.head().to_string(index=False))
+
+    books_final = finalise_books(books_clean)
+    customers_final = finalise_customers(customers_clean)
+
+    books_final.to_csv(
+        BOOKS_CLEAN_PATH,
+        index=False,
+        date_format="%Y-%m-%d",
+    )
+    customers_final.to_csv(
+        CUSTOMERS_CLEAN_PATH,
+        index=False,
+    )
+
+    print("Final clean files saved:")
+    print(f" - {BOOKS_CLEAN_PATH}")
+    print(f" - {CUSTOMERS_CLEAN_PATH}")
+    print(f"Final book rows: {len(books_final)}")
+    print(f"Final customer rows: {len(customers_final)}")
+
+    books_check = pd.read_csv(
+        BOOKS_CLEAN_PATH,
+        parse_dates=["book_checkout", "book_returned"],
+    )
+    customers_check = pd.read_csv(CUSTOMERS_CLEAN_PATH)
+    calculated_days = (
+        books_check["book_returned"] - books_check["book_checkout"]
+    ).dt.days
+
+    assert "loan_days" in books_check.columns
+    assert books_check["loan_days"].equals(calculated_days)
+    assert customers_check["customer_id"].is_unique
+
+    print("Validation passed.")
+    print(f"{BOOKS_CLEAN_PATH.name}: {len(books_check)} rows")
+    print(f"{CUSTOMERS_CLEAN_PATH.name}: {len(customers_check)} rows")
 
 
-# Run functions and output final clean CSV files
-books_final = finalise_books(books_clean)
-customers_final = finalise_customers(customers_clean)
-
-books_final.to_csv(
-    BOOKS_CLEAN_PATH,
-    index=False,
-    date_format="%Y-%m-%d",
-)
-customers_final.to_csv(
-    CUSTOMERS_CLEAN_PATH,
-    index=False,
-)
-
-print("Final clean files saved:")
-print(f" - {BOOKS_CLEAN_PATH}")
-print(f" - {CUSTOMERS_CLEAN_PATH}")
-print(f"Final book rows: {len(books_final)}")
-print(f"Final customer rows: {len(customers_final)}")
-
-
-# In[17]:
-
-
-# Validate the enrichment and saved clean files
-books_check = pd.read_csv(
-    BOOKS_CLEAN_PATH,
-    parse_dates=["book_checkout", "book_returned"],
-)
-customers_check = pd.read_csv(CUSTOMERS_CLEAN_PATH)
-
-calculated_days = (
-    books_check["book_returned"] - books_check["book_checkout"]
-).dt.days
-
-assert BOOKS_CLEAN_PATH.exists()
-assert CUSTOMERS_CLEAN_PATH.exists()
-assert "loan_days" in books_check.columns
-assert books_check["loan_days"].equals(calculated_days)
-assert customers_check["customer_id"].is_unique
-
-print("Validation passed.")
-print(f"{BOOKS_CLEAN_PATH.name}: {len(books_check)} rows")
-print(f"{CUSTOMERS_CLEAN_PATH.name}: {len(customers_check)} rows")
-
-
-# ## 3. Turn your notebook into an executable .py file (manually).
-
-# In[18]:
-
-
-# Save the notebook to open PowerShell
-conversion_command = "jupyter nbconvert --to script eda.ipynb"
-execution_command = "python eda.py"
-
-print("Run these commands in PowerShell or Terminal:")
-print(conversion_command)
-print(execution_command)
-
+if __name__ == "__main__":
+    main()
