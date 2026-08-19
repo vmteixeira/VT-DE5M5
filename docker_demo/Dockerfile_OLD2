@@ -1,0 +1,4 @@
+FROM python:3.12-slim
+WORKDIR /app
+COPY imhere.py /app
+ENTRYPOINT ["python", "imhere.py"]  

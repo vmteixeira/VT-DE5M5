@@ -1,5 +1,10 @@
+# Python virtual environments
 venv/
+.venv/
+
+# Python caches
 __pycache__/
 *.pyc
+*.py[cod]
 .ipynb_checkpoints/
 .pytest_cache/
