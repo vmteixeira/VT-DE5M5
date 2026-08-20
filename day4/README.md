@@ -4,7 +4,7 @@ Project objective
 
 
 
-The purpose of this stage was to refactor the original day2\_notebook.py data-cleaning application so that it not only creates clean CSV files but also records Data Engineering metrics for every transformation.
+The purpose of this stage was to refactor the original day4\_notebook.py data-cleaning application so that it not only creates clean CSV files but also records Data Engineering metrics for every transformation.
 
 
 
