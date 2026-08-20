@@ -1,14 +1,22 @@
-id,books,book_checkout,book_returned,days_allowed_to_borrow,customer_id,loan_days,days_allowed,invalid_date_order,returned_late
+id,books,book_checkout,book_returned,days_allowed_to_borrow,customer_id,loan_days,days_allowed,returned_late,invalid_date_order
 1,Catcher in the Rye,2023-02-20,2023-02-25,2 weeks,1,5,14,False,False
-6,Little Women,2023-04-02,2023-05-01,2 weeks,1,29,14,False,True
+2,Lord of the rings the two towers,2023-03-24,2023-03-21,2 weeks,2,-3,14,False,True
+3,Lord of the rings the return of the kind,2023-03-29,2023-03-25,2 weeks,3,-4,14,False,True
+4,The hobbit,2023-04-02,2023-03-25,2 weeks,4,-8,14,False,True
+5,Dune,2023-04-02,2023-03-25,2 weeks,5,-8,14,False,True
+6,Little Women,2023-04-02,2023-05-01,2 weeks,1,29,14,True,False
+7,IT,2063-04-10,2023-04-03,2 weeks,6,-14617,14,False,True
+8,Misery,2023-04-15,2023-04-03,2 weeks,7,-12,14,False,True
 9,Catch 22,2023-04-15,2023-04-16,2 weeks,7,1,14,False,False
 10,Animal Farm,2023-04-20,2023-04-24,2 weeks,2,4,14,False,False
 11,1984,2023-04-23,2023-04-27,2 weeks,8,4,14,False,False
-12,Little Women,2023-04-02,2023-05-01,2 weeks,1,29,14,False,True
+12,Little Women,2023-04-02,2023-05-01,2 weeks,1,29,14,True,False
 13,East of Eden,2023-04-30,2023-05-05,2 weeks,2,5,14,False,False
 14,America Is in the Heart,2023-05-01,2023-05-07,2 weeks,3,6,14,False,False
 15,Wuthering Heights,2023-05-01,2023-05-10,2 weeks,9,9,14,False,False
-16,Dark Tales,2023-05-15,2023-06-01,2 weeks,2,17,14,False,True
+16,Dark Tales,2023-05-15,2023-06-01,2 weeks,2,17,14,True,False
+17,The Bloody Chamber,,2023-06-04,2 weeks,3,,14,,
 18,Les Miserables,2023-06-03,2023-06-07,2 weeks,5,4,14,False,False
-19,Dracula,2023-06-10,2023-07-10,2 weeks,10,30,14,False,True
-20,Frankenstein,2023-06-01,2023-06-20,2 weeks,2,19,14,False,True
+19,Dracula,2023-06-10,2023-07-10,2 weeks,10,30,14,True,False
+20,Frankenstein,2023-06-01,2023-06-20,2 weeks,2,19,14,True,False
+21,,2023-06-01,2023-06-05,2 weeks,,4,14,False,False
