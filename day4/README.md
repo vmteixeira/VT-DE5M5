@@ -39,7 +39,7 @@ The pipeline processes the following raw datasets:
 
 The executable Python application is:
 
-* day2\_notebook.py
+* day4\_notebook.py
 
 
 
@@ -73,7 +73,7 @@ Running the pipeline
 
 
 
-python .\\day2\_notebook.py
+python .\\day4\_notebook.py
 
 
 
@@ -81,11 +81,11 @@ A successful execution creates:
 
 
 
-metrics\\library\_books\_clean.csv
+day4\\library\_books\_clean.csv
 
-metrics\\library\_customers\_clean.csv
+day4\\library\_customers\_clean.csv
 
-metrics\\data\_engineering\_metrics.csv
+day4\\data\_engineering\_metrics.csv
 
 
 
