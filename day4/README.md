@@ -131,35 +131,5 @@ Select Get data.
 
 Select Text/CSV.
 
-Select Clean\_Data\\data\_engineering\_metrics.csv.
-
-Select Transform Data.
-
-Confirm the following data types:
-
-Columns	Power BI data type
-
-run\_id, dataset, step\_name, status	Text
-
-run\_timestamp\_utc	Date/Time/Timezone
-
-Row, column and quality counts	Whole number
-
-Completeness and uniqueness percentages	Decimal number
-
-processing\_time\_ms	Decimal number
-
-details	Text
-
-
-
-
-
-
-
-
-
-
-
-
+Select day4\Data_Engineering_Metrics.csv.
 
